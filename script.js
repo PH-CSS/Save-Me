@@ -1,9 +1,12 @@
-const BotaoPlayPause = document.getElementById('play-pause')
-const audioCapitulo = document.getElementById('audio-capitulo')
+const BotaoPlayPause = document.getElementById('play-pause');
+const audioCapitulo = document.getElementById('audio-capitulo');
+const botaoProximaFaixa = document.getElementById('proximo');
+const botaoFaixaAnterior = document.getElementById('anterior')
+const nomeCapitulo = document.getElementById("capitulo");
 
 const NumeroCapitulos = 10;
 let MusicaPlayPause = 0;
-
+let capituloAtual = 1;
 
 function tocarFaixa() {
     audioCapitulo.play();
@@ -22,20 +25,54 @@ function TocarOuPausar() {
     if (MusicaPlayPause === 0 ){
 
     tocarFaixa();
-
     MusicaPlayPause = 1;
 
 } else{
-        pausarFaixa();
 
+        pausarFaixa();
         MusicaPlayPause = 0;
 
     }
 }
 
 
-BotaoPlayPause.addEventListener('click', TocarOuPausar);
 
+
+function proximaFaixa() {
+    
+    if (capituloAtual=== NumeroCapitulos) {
+        capituloAtual = 1;
+    }   else{     
+        capituloAtual = capituloAtual + 1;
+    }
+    
+    audioCapitulo.src = '../Aula-completa-passoApasso/books/dom-casmurro/' + capituloAtual +'.mp3';
+    nomeCapitulo.innerText = "Foi para o Capítulo " + capituloAtual;
+}
+
+
+function faixaAnterior() {
+    
+    if (capituloAtual == 1) {
+
+        capituloAtual = NumeroCapitulos;
+
+    }   else{     
+        capituloAtual = capituloAtual - 1;
+    }
+    
+    audioCapitulo.src = '../Aula-completa-passoApasso/books/dom-casmurro/' + capituloAtual +'.mp3';
+    nomeCapitulo.innerText = "Voltou para Capítulo " + capituloAtual;
+    
+}
+
+
+
+        BotaoPlayPause.addEventListener('click', TocarOuPausar);
+
+        botaoProximaFaixa.addEventListener('click', proximaFaixa);
+
+        botaoFaixaAnterior.addEventListener('click', faixaAnterior);
 
 
 

@@ -46,7 +46,7 @@ function proximaFaixa() {
         capituloAtual = capituloAtual + 1;
     }
     
-    audioCapitulo.src = '../Aula-completa-passoApasso/books/dom-casmurro/' + capituloAtual +'.mp3';
+    audioCapitulo.src = 'Aula-completa-passoApasso/books/dom-casmurro/' + capituloAtual +'.mp3';
     nomeCapitulo.innerText = "Foi para o Capítulo " + capituloAtual;
 }
 
@@ -61,7 +61,7 @@ function faixaAnterior() {
         capituloAtual = capituloAtual - 1;
     }
     
-    audioCapitulo.src = '../Aula-completa-passoApasso/books/dom-casmurro/' + capituloAtual +'.mp3';
+    audioCapitulo.src = 'Aula-completa-passoApasso/books/dom-casmurro/' + capituloAtual +'.mp3';
     nomeCapitulo.innerText = "Voltou para Capítulo " + capituloAtual;
     
 }
